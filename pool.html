@@ -20,7 +20,6 @@
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
                 <li class="sign-in-sign-up"><a href="login.html">Sign In / Sign Up</a></li>
-
             </ul>
         </nav>
     </div>
@@ -45,32 +44,32 @@
                 </div>
             </div>
             <div class="border_pool">
-                <h2>Total Amount</h2>
-                <div class="Total_amount">
-                    <input type="number" class="euro-input" placeholder="€" min="0">
-                 </div>
-            </div>
-        </div>  
-        <div class="transaction-form">
-            <h2>مدیریت دخل و خرج</h2>
-            <form id="transaction-form">
-                <label for="transaction-name">اسم تراکنش:</label>
-                <input type="text" id="transaction-name" name="transaction-name" placeholder="مثلاً خرید، حقوق" required>
-                
-                <label for="transaction-amount">مبلغ:</label>
-                <input type="number" id="transaction-amount" name="transaction-amount" placeholder="مبلغ" required>
-                
-                <button type="submit">ثبت تراکنش</button>
-            </form>
-        
-            <div class="transactions-list">
-                <h3>لیست تراکنش‌ها</h3>
-                <ul id="transactions-list"></ul>
-            </div>
+                <div class="transaction-form">
+                    <h2>Total Amount</h2>
+                    <div class="Total_amount">
+                        <input type="number" class="euro-input" placeholder="€" min="0" id="total-amount">
+                    </div>
+                    <button id="submit-amount-btn">ثبت مبلغ</button>
+                    <h2>مدیریت دخل و خرج</h2>
+                    <form id="transaction-form" class="transaction-form2" style="display:none;">
+                        <label for="transaction-name">Transaction Name</label>
+                        <input type="text" id="transaction-name" name="transaction-name"
+                            placeholder="EX : Alimentation , Carte de sim" required>
+            
+                        <label for="transaction-amount">Transaction Amount :</label>
+                        <input type="number" id="transaction-amount" name="transaction-amount" placeholder="€" required min="0">
+                        <button type="submit">Enrtegistrer</button>
+                    </form>
+                    <div class="transactions-list" style="display:none;">
+                        <h3>لیست تراکنش‌ها</h3>
+                        <ul id="transactions-list"></ul>
+                    </div>
+                </div>
+            </div>            
         </div>
     </div>
 
-    <script src="signin.js"></script>
+    <script src="pool.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <a href="login.html">بازدید از سایت</a>
 
