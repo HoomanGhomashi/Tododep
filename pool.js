@@ -4,6 +4,9 @@ const form = document.querySelector('.transaction-form2');
 const transactionsList = document.getElementById('transactions-list');
 const submitAmountBtn = document.getElementById('submit-amount-btn');
 const totalAmountInput = document.getElementById('total-amount');
+const chartCanvas = document.getElementById('expenseChart');
+
+let chart;
 
 // بازیابی تراکنش‌ها از localStorage و نمایش آن‌ها
 function loadTransactions() {
@@ -24,13 +27,50 @@ function loadTransactions() {
         transactionsList.appendChild(li);
 
         // افزودن رویداد برای دکمه حذف
-        deleteButton.addEventListener('click', function() {
+        deleteButton.addEventListener('click', function () {
             removeTransaction(transaction.name); // حذف تراکنش از localStorage و لیست
             li.remove(); // حذف آیتم از لیست
         });
     });
+    updateChart();
 }
+function updateChart() {
+    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+    const labels = transactions.map(transaction => transaction.name);
+    const data = transactions.map(transaction => parseFloat(transaction.amount));
 
+    if (chart) {
+        chart.destroy(); // حذف نمودار قبلی برای ایجاد نمودار جدید
+    }
+
+    chart = new Chart(chartCanvas, {
+        type: 'pie', // تغییر نوع نمودار به دایره‌ای (pie)
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'مبالغ تراکنش‌ها (€)',
+                data: data,
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'], // رنگ‌های مختلف برای هر بخش
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            return tooltipItem.label + ': €' + tooltipItem.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
 // بارگذاری تراکنش‌ها از localStorage وقتی که صفحه بارگذاری می‌شود
 window.onload = function () {
     loadTransactions();
@@ -56,7 +96,7 @@ submitAmountBtn.addEventListener('click', function () {
 });
 
 // افزودن رویداد برای ارسال فرم
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', function (event) {
     event.preventDefault(); // جلوگیری از ارسال فرم و بارگذاری مجدد صفحه
 
     // گرفتن مقادیر از فیلدهای ورودی
@@ -87,14 +127,17 @@ form.addEventListener('submit', function(event) {
         transactionsList.appendChild(li);
 
         // افزودن رویداد برای دکمه حذف
-        deleteButton.addEventListener('click', function() {
+        deleteButton.addEventListener('click', function () {
             removeTransaction(transactionName); // حذف تراکنش از localStorage و لیست
+            updateChart(); // به‌روز کردن نمودار
             li.remove(); // حذف آیتم از لیست
         });
 
         // پاک کردن فیلدهای ورودی پس از ارسال
         document.getElementById('transaction-name').value = '';
         document.getElementById('transaction-amount').value = '';
+        updateChart();
+
     }
 });
 
@@ -114,7 +157,7 @@ window.addEventListener('beforeunload', function (event) {
     // اگر داده‌ها موجود باشند، نمایش پیغام هشدار
     if (transactions || totalAmount) {
         const message = "تمام داده‌هایتان از بین خواهد رفت. مطمئنید که می‌خواهید صفحه را رفرش کنید؟";
-        
+
         // این خط در بعضی مرورگرها الزامی است تا پیغام نشان داده شود
         event.returnValue = message;
 
