@@ -1,0 +1,198 @@
+/* استایل‌های عمومی صفحه */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #868383;
+    /* رنگ پس‌زمینه برای کل صفحه */
+}
+
+/* استایل برای container */
+.container {
+    display: flex;
+    /* آیتم‌ها به صورت افقی کنار هم قرار می‌گیرند */
+    align-items: flex-start;
+    /* آیتم‌ها در بالا تراز می‌شوند */
+}
+
+/* استایل برای عنوان داخل container */
+.container h1 {
+    margin-left: 20px;
+}
+
+/* استایل برای بخش کنترل */
+.container .control_titrs {
+    display: block;
+}
+
+/* استایل برای text_titre */
+.control_titrs .text_titre {
+    display: block;
+}
+
+/* خط جداکننده */
+.container .custom-line {
+    margin-top: 1px;
+    display: block;
+    width: 500px;
+}
+
+.deux_secteur {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.deux_secteur .border_chart {
+    width: 50%;
+    height: max-content;
+    display: block;
+    /* border-radius: 10px; */
+    /* گوشه‌های گرد */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* سایه برای باکس */
+    border-right: 2px solid #000000;
+    text-align: center;
+
+}
+
+.border_chart .chart-box {
+    width: 80%;
+    /* margin-left: 50px; */
+}
+
+/* برای سمت راست */
+.deux_secteur .border_pool {
+    margin-left: 50px;
+    display: block;
+    justify-content: left;
+    text-align: center;
+}
+
+.deux_secteur .border_pool .Total_amount {
+    display: flex;
+}
+
+.Total_amount .euro-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.Total_amount .euro-symbol {
+    
+    position: absolute;
+    right: 10px;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+}
+
+/* استایل برای navbar بالایی */
+.navbar {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    /* استفاده از Flexbox برای چیدمان افقی */
+    justify-content: center;
+    /* مرکز‌چین کردن آیتم‌ها */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 15px;
+    /* فاصله بین آیتم‌ها */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    /* حذف خط زیر لینک‌ها */
+    font-size: 18px;
+    padding: 8px 15px;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+    /* تغییر رنگ پس‌زمینه هنگام هاور */
+    border-radius: 4px;
+    /* گوشه‌های گرد */
+}
+
+.navbar nav ul li.sign-in-sign-up {
+    margin-left: auto;
+    /* قرار دادن این آیتم در انتهای صف */
+}
+
+.navbar nav ul li {
+    margin-right: 20px;
+    /* فاصله بین آیتم‌ها */
+}
+
+.navbar nav ul {
+    margin-left: 120PX;
+    display: flex;
+    justify-content: center;
+    /* قرار دادن آیتم‌ها در وسط */
+    list-style-type: none;
+
+    padding: 0;
+    align-items: center;
+    /* تراز کردن عمودی آیتم‌ها */
+}
+
+/* استایل برای navbar دومی */
+.navbar2 {
+    width: fit-content;
+    /* عرض به اندازه محتوای داخلی */
+    height: 100vh;
+    /* ارتفاع به اندازه محتوای داخلی */
+    font-size: 15px;
+    display: flex;
+    border-radius: 2px;
+    background-color: #333;
+    /* رنگ پس‌زمینه */
+    justify-content: center;
+    /* آیتم‌ها به سمت راست */
+    padding: 10px 15px;
+    /* فاصله داخلی برای زیبایی */
+}
+
+.navbar2 ul {
+    list-style: none;
+    display: block;
+    /* استفاده از Flexbox برای چیدمان افقی */
+    justify-content: center;
+    /* مرکز‌چین کردن آیتم‌ها */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar2 li {
+    margin-top: 25px;
+}
+
+.navbar2 a {
+    color: white;
+    text-decoration: none;
+    /* حذف خط زیر لینک‌ها */
+    font-size: 18px;
+    padding: 8px 15px;
+    display: inline-block;
+}
+
+.navbar2 a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}

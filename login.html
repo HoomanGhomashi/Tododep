@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه لاگین</title>
+    <link rel="stylesheet" href="style_log.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>ورود به حساب</h1>
+        <form action="login.php" method="POST">
+            <label for="username">نام کاربری</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">رمز عبور</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">ورود</button>
+        </form>
+
+        <?php if (!empty($error_message)): ?>
+        <div class="error-message" style="color: red;">
+            <?php echo $error_message; ?>
+        </div>
+        <?php endif; ?>
+
+        <div class="forget">
+            <a class="login" href="login.html">فراموشی رمز عبور</a>
+            <a class="register" href="register.html">ثبت نام</a>
+        </div>
+    </div>
+</body>
+
+</html>

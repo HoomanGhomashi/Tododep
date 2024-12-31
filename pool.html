@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoDep</title>
+    <!-- لینک فایل CSS -->
+    <link rel="stylesheet" href="pool.css">
+    <!-- لینک کتابخانه Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="sign-in-sign-up"><a href="login.html">Sign In / Sign Up</a></li>
+
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="navbar2">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="pool.html">Pool</a></li>
+                    <li><a href="#">Event</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="deux_secteur">
+            <div class="border_chart">
+                <h2>Expense Chart</h2>
+                <div class="chart-box">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+            <div class="border_pool">
+                <h2>Total Amount</h2>
+                <div class="Total_amount">
+                    <input type="number" class="euro-input" placeholder="€" min="0">
+                 </div>
+            </div>
+        </div>  
+    </div>
+
+    <script src="signin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <a href="login.html">بازدید از سایت</a>
+
+</body>
+
+</html>
