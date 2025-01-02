@@ -1,0 +1,175 @@
+/* استایل‌های عمومی صفحه */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #868383;
+    /* رنگ پس‌زمینه برای کل صفحه */
+}
+
+/* استایل برای container */
+.container {
+    display: flex;
+    /* آیتم‌ها به صورت افقی کنار هم قرار می‌گیرند */
+    align-items: flex-start;
+}
+
+.date-time {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.event-creator {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 400px;
+}
+
+.event-creator label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.event-creator input,
+.event-creator textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.event-creator button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.event-creator button:hover {
+    background-color: #218838;
+}
+
+.event-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#event-list li {
+    background-color: #f1f1f1;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* استایل برای navbar بالایی */
+.navbar {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    /* استفاده از Flexbox برای چیدمان افقی */
+    justify-content: center;
+    /* مرکز‌چین کردن آیتم‌ها */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 15px;
+    /* فاصله بین آیتم‌ها */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    /* حذف خط زیر لینک‌ها */
+    font-size: 18px;
+    padding: 8px 15px;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+    /* تغییر رنگ پس‌زمینه هنگام هاور */
+    border-radius: 4px;
+    /* گوشه‌های گرد */
+}
+
+.navbar nav ul li.sign-in-sign-up {
+    margin-left: auto;
+    /* قرار دادن این آیتم در انتهای صف */
+}
+
+.navbar nav ul li {
+    margin-right: 20px;
+    /* فاصله بین آیتم‌ها */
+}
+
+.navbar nav ul {
+    margin-left: 120PX;
+    display: flex;
+    justify-content: center;
+    /* قرار دادن آیتم‌ها در وسط */
+    list-style-type: none;
+
+    padding: 0;
+    align-items: center;
+    /* تراز کردن عمودی آیتم‌ها */
+}
+
+/* استایل برای navbar دومی */
+.navbar2 {
+    width: fit-content;
+    /* عرض به اندازه محتوای داخلی */
+    height: 100vh;
+    /* ارتفاع به اندازه محتوای داخلی */
+    font-size: 15px;
+    display: flex;
+    border-radius: 2px;
+    background-color: #333;
+    /* رنگ پس‌زمینه */
+    justify-content: center;
+    /* آیتم‌ها به سمت راست */
+    padding: 10px 15px;
+    /* فاصله داخلی برای زیبایی */
+}
+
+.navbar2 ul {
+    list-style: none;
+    display: block;
+    /* استفاده از Flexbox برای چیدمان افقی */
+    justify-content: center;
+    /* مرکز‌چین کردن آیتم‌ها */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar2 li {
+    margin-top: 25px;
+}
+
+.navbar2 a {
+    color: white;
+    text-decoration: none;
+    /* حذف خط زیر لینک‌ها */
+    font-size: 18px;
+    padding: 8px 15px;
+    display: inline-block;
+}
+
+.navbar2 a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}

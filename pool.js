@@ -44,7 +44,7 @@ function updateChart() {
     }
 
     chart = new Chart(chartCanvas, {
-        type: 'pie', // تغییر نوع نمودار به دایره‌ای (pie)
+        type: 'doughnut', // تغییر نوع نمودار به دایره‌ای (pie)
         data: {
             labels: labels,
             datasets: [{

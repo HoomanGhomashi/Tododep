@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="task.css"> <!-- اگر فایل استایل دارید -->
+    <script src="task.js" defer></script>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="sign-in-sign-up"><a href="login.html">Sign In / Sign Up</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="navbar2">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="pool.html">Pool</a></li>
+                    <li><a href="task.html">Event</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="container_add_tasks">
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+
+            <div class="event-creator">
+                <label for="event-title">تیتر رویداد:</label>
+                <input type="text" id="event-title" placeholder="تیتر را وارد کنید">
+
+                <label for="event-date">تاریخ:</label>
+                <input type="date" id="event-date">
+
+                <label for="event-time">ساعت:</label>
+                <input type="time" id="event-time">
+
+                <label for="event-description">متن رویداد:</label>
+                <textarea id="event-description" placeholder="توضیحات رویداد را وارد کنید"></textarea>
+
+                <button id="add-event-btn">اضافه کردن رویداد</button>
+            </div>
+
+            <div class="event-list">
+                <h3>رویدادهای شما:</h3>
+                <ul id="events"></ul>
+            </div>
+        </div>
+</body>
+
+</html>
