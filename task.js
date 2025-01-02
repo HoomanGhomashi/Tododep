@@ -22,31 +22,80 @@ setInterval(updateFrenchDateTime, 1000);
 
 // نمایش اولیه
 updateFrenchDateTime();
+// تابع برای بارگذاری رویدادها از localStorage
+function loadEvents() {
+    try {
+        const events = JSON.parse(localStorage.getItem('events')) || [];
+        return events;
+    } catch (error) {
+        console.error('Error loading events:', error);
+        return [];
+    }
+}
+
+// بارگذاری رویدادها در صفحه
+function renderEvents() {
+    try {
+        const events = loadEvents();
+        const eventList = document.getElementById('events');
+        eventList.innerHTML = ''; // پاک کردن لیست موجود
+
+        if (events.length === 0) {
+            eventList.innerHTML = '<p>هیچ رویدادی وجود ندارد!</p>';
+            return;
+        }
+
+        events.forEach(event => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>تیتر:</strong> ${event.title} <br>
+                            <strong>تاریخ:</strong> ${event.date} <br>
+                            <strong>ساعت:</strong> ${event.time} <br>
+                            <strong>توضیحات:</strong> ${event.description}`;
+            eventList.appendChild(li);
+        });
+    } catch (error) {
+        console.error('Error rendering events:', error);
+    }
+}
+function saveEvents(events) {
+    try {
+        localStorage.setItem('events', JSON.stringify(events));
+    } catch (error) {
+        console.error('Error saving events:', error);
+    }
+}
 
 // اضافه کردن رویداد جدید به لیست
 document.getElementById('add-event-btn').addEventListener('click', function () {
-    const title = document.getElementById('event-title').value;
+    const title = document.getElementById('event-title').value.trim();
     const date = document.getElementById('event-date').value;
     const time = document.getElementById('event-time').value;
-    const description = document.getElementById('event-description').value;
+    const description = document.getElementById('event-description').value.trim();
 
-    if (title && date && time && description) {
-        const eventList = document.getElementById('events');
-        const li = document.createElement('li');
+    const today = new Date();
+    const selectedDate = new Date(date);
 
-        li.innerHTML = `<strong>تیتر:</strong> ${title} <br>
-                        <strong>تاریخ:</strong> ${date} <br>
-                        <strong>ساعت:</strong> ${time} <br>
-                        <strong>توضیحات:</strong> ${description}`;
-
-        eventList.appendChild(li);
-
-        // پاک کردن فرم
-        document.getElementById('event-title').value = '';
-        document.getElementById('event-date').value = '';
-        document.getElementById('event-time').value = '';
-        document.getElementById('event-description').value = '';
-    } else {
+    if (!title || !date || !time || !description) {
         alert('لطفاً تمام فیلدها را پر کنید!');
+        return;
     }
+
+    if (selectedDate < today) {
+        alert('تاریخ وارد شده نباید از امروز کمتر باشد.');
+        return;
+    }
+
+    const events = loadEvents();
+    events.push({ title, date, time, description });
+    saveEvents(events);
+    renderEvents();
+
+    // پاک کردن فرم
+    document.getElementById('event-title').value = '';
+    document.getElementById('event-date').value = '';
+    document.getElementById('event-time').value = '';
+    document.getElementById('event-description').value = '';
 });
+
+// بارگذاری اولیه رویدادها
+renderEvents();
