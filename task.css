@@ -16,11 +16,20 @@ body {
 }
 
 .date-time {
+    width: fit-content;
+    margin: 30px;
     font-size: 1.2em;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    
 }
-
+#current-time{
+text-align: center;
+}
 .event-creator {
+    margin: 40px;
+
     background-color: #f9f9f9;
     padding: 20px;
     border: 1px solid #ccc;
@@ -56,13 +65,15 @@ body {
 .event-creator button:hover {
     background-color: #218838;
 }
-
+.event-list{
+    margin-left: 20px;
+}
 .event-list ul {
     list-style: none;
     padding: 0;
 }
 
-#event-list li {
+.event-list li {
     background-color: #f1f1f1;
     margin-bottom: 10px;
     padding: 10px;

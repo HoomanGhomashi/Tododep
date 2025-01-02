@@ -14,7 +14,7 @@ function updateFrenchDateTime() {
 
     // نمایش تاریخ و ساعت
     dateElement.textContent = frenchDate;
-    timeElement.textContent = ' - ' + frenchTime; // جدا کردن تاریخ و ساعت با خط فاصله
+    timeElement.textContent = ' ' + frenchTime; // جدا کردن تاریخ و ساعت با خط فاصله
 }
 
 // به‌روزرسانی هر ثانیه
