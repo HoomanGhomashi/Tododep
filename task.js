@@ -34,33 +34,13 @@ function loadEvents() {
     }
 }
 
-// تابع برای ذخیره‌سازی رویدادها در localStorage
-function saveEvents(events) {
-    try {
-        localStorage.setItem('events', JSON.stringify(events));
-    } catch (error) {
-        console.error('Error saving events:', error);
-    }
-}
 
-// تابع برای حذف یک رویداد
-function deleteEvent(event) {
-    const index = event.target.getAttribute('data-index'); // گرفتن ایندکس رویداد
-    const events = loadEvents();  // بارگذاری رویدادها
-
-    // حذف رویداد از آرایه
-    events.splice(index, 1);
-
-    // ذخیره مجدد رویدادها در localStorage
-    saveEvents(events);
-    renderEvents(); // بارگذاری مجدد رویدادها و نمایش آن‌ها
-}
-
-// بارگذاری و نمایش رویدادها در صفحه
 function renderEvents() {
     try {
         const events = loadEvents();
         const eventList = document.getElementById('events');
+        const template = document.getElementById('event-template');  // دریافت template
+
         eventList.innerHTML = ''; // پاک کردن لیست موجود
 
         if (events.length === 0) {
@@ -69,22 +49,40 @@ function renderEvents() {
         }
 
         events.forEach((event, index) => {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>تیتر:</strong> ${event.title} <br>
-                            <strong>تاریخ:</strong> ${event.date} <br>
-                            <strong>ساعت:</strong> ${event.time} <br>
-                            <strong>توضیحات:</strong> ${event.description} <br>
-                            <button class="delete-btn" data-index="${index}">حذف</button>`;
-            eventList.appendChild(li);
-        });
+            const clone = template.content.cloneNode(true);  // ایجاد یک کپی از template
 
-        // اضافه کردن رویداد به دکمه حذف
-        const deleteButtons = document.querySelectorAll('.delete-btn');
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', deleteEvent);
+            // پر کردن مقادیر در template
+            clone.querySelector('.event-title').textContent = event.title;
+            clone.querySelector('.event-date').textContent = event.date;
+            clone.querySelector('.event-time').textContent = event.time;
+            clone.querySelector('.event-description').textContent = event.description;
+
+            // تنظیم داده‌های حذف
+            const deleteBtn = clone.querySelector('.delete-btn');
+            deleteBtn.addEventListener('click', function() {
+                deleteEvent(index);
+            });
+
+            eventList.appendChild(clone);  // اضافه کردن به لیست
         });
     } catch (error) {
         console.error('Error rendering events:', error);
+    }
+}
+
+// تابع برای حذف رویداد
+function deleteEvent(index) {
+    const events = loadEvents();
+    events.splice(index, 1);  // حذف رویداد
+    saveEvents(events);
+    renderEvents();  // به‌روزرسانی نمایش رویدادها
+}
+
+function saveEvents(events) {
+    try {
+        localStorage.setItem('events', JSON.stringify(events));
+    } catch (error) {
+        console.error('Error saving events:', error);
     }
 }
 

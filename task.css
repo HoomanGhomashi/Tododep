@@ -38,36 +38,57 @@ body {
 .event-creator {
     display: block;
     background-color: #f9f9f9;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
     width: 400px;
 }
 
-.event-creator label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
 
-.event-creator input,
-.event-creator textarea {
+.event-creator input {
     display: block;
+    resize: none;
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+
+}
+
+.event-creator textarea {
+    display: block;
+    resize: none;
+    width: 100%;
+    /* تنظیم عرض برای پوشش کامل */
+    height: 150px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
 }
 
 .event-creator button {
-    background-color: #28a745;
-    color: #fff;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0ff56f;
+    /* رنگ دکمه */
+    color: white;
     border: none;
-    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1em;
+}
+
+.event-creator .event-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 .event-creator button:hover {
@@ -91,12 +112,19 @@ body {
     margin-left: 20px;
 }
 
+.event-list {
+    width: 400px;
+
+}
+
 .event-list li {
+    margin-bottom: 20px;
     background-color: #f1f1f1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 10px; /* فاصله بین آیتم‌ها */
+    margin-left: 20px;
+    /* فاصله بین آیتم‌ها */
     animation: fadeIn 0.5s ease;
 }
 
@@ -105,11 +133,77 @@ body {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
+ul#events {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul#events li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+ul#events li:hover {
+    background-color: #f1f1f1;
+}
+
+/* استایل برای عنوان هر رویداد */
+ul#events li .event-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* استایل برای تاریخ و ساعت */
+ul#events li .event-date,
+ul#events li .event-time {
+    font-size: 1em;
+    color: #34495e;
+    margin: 5px 0;
+}
+
+/* استایل برای توضیحات */
+ul#events li .event-description {
+    font-size: 1em;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+/* دکمه حذف */
+ul#events li .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+ul#events li .delete-btn:hover {
+    background-color: #c0392b;
+}
+
+ul#events li .delete-btn:focus {
+    outline: none;
+}
+
 
 /* استایل برای navbar بالایی */
 .navbar {

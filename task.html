@@ -39,7 +39,11 @@
                 <span id="current-time"></span>
             </div>
             <div class="two-part">
+
+                <h2 class="form-title">اضافه کردن رویداد جدید</h2>
+
                 <div class="event-creator">
+
                     <label for="event-title">تیتر رویداد:</label>
                     <input type="text" id="event-title" placeholder="تیتر را وارد کنید">
 
@@ -58,9 +62,17 @@
                     <h3>رویدادهای شما:</h3>
                     <ul id="events"></ul>
                 </div>
+                <template id="event-template">
+                    
+                    <li>
+                        <strong>تیتر:</strong> <span class="event-title"></span> <br>
+                        <strong>تاریخ:</strong> <span class="event-date"></span> <br>
+                        <strong>ساعت:</strong> <span class="event-time"></span> <br>
+                        <strong>توضیحات:</strong> <span class="event-description"></span> <br>
+                        <button class="delete-btn">حذف</button>
+                    </li>
+                </template>
             </div>
-
-
         </div>
 
 </body>
