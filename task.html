@@ -40,30 +40,30 @@
             </div>
             <div class="two-part">
 
-                <h2 class="form-title">اضافه کردن رویداد جدید</h2>
+                <div class="add_event">
+                    <h2 class="form-title">اضافه کردن رویداد جدید</h2>
+                    <div class="event-creator">
+                        <label for="event-title">تیتر رویداد:</label>
+                        <input type="text" id="event-title" placeholder="تیتر را وارد کنید">
 
-                <div class="event-creator">
+                        <label for="event-date">تاریخ:</label>
+                        <input type="date" id="event-date">
 
-                    <label for="event-title">تیتر رویداد:</label>
-                    <input type="text" id="event-title" placeholder="تیتر را وارد کنید">
+                        <label for="event-time">ساعت:</label>
+                        <input type="time" id="event-time">
 
-                    <label for="event-date">تاریخ:</label>
-                    <input type="date" id="event-date">
+                        <label for="event-description">متن رویداد:</label>
+                        <textarea id="event-description" placeholder="توضیحات رویداد را وارد کنید"></textarea>
 
-                    <label for="event-time">ساعت:</label>
-                    <input type="time" id="event-time">
-
-                    <label for="event-description">متن رویداد:</label>
-                    <textarea id="event-description" placeholder="توضیحات رویداد را وارد کنید"></textarea>
-
-                    <button id="add-event-btn">اضافه کردن رویداد</button>
+                        <button id="add-event-btn">اضافه کردن رویداد</button>
+                    </div>
                 </div>
                 <div class="event-list">
                     <h3>رویدادهای شما:</h3>
                     <ul id="events"></ul>
                 </div>
                 <template id="event-template">
-                    
+
                     <li>
                         <strong>تیتر:</strong> <span class="event-title"></span> <br>
                         <strong>تاریخ:</strong> <span class="event-date"></span> <br>

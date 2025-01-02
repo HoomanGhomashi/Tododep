@@ -20,7 +20,9 @@ body {
     margin: 50px;
 
 }
-
+.add_event{
+    display: block;
+}
 .date-time {
     width: fit-content;
     margin: 30px;
