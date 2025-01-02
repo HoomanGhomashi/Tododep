@@ -38,28 +38,31 @@
                 <span id="current-date"></span>
                 <span id="current-time"></span>
             </div>
-            
-            <div class="event-creator">
-                <label for="event-title">تیتر رویداد:</label>
-                <input type="text" id="event-title" placeholder="تیتر را وارد کنید">
+            <div class="two-part">
+                <div class="event-creator">
+                    <label for="event-title">تیتر رویداد:</label>
+                    <input type="text" id="event-title" placeholder="تیتر را وارد کنید">
 
-                <label for="event-date">تاریخ:</label>
-                <input type="date" id="event-date">
+                    <label for="event-date">تاریخ:</label>
+                    <input type="date" id="event-date">
 
-                <label for="event-time">ساعت:</label>
-                <input type="time" id="event-time">
+                    <label for="event-time">ساعت:</label>
+                    <input type="time" id="event-time">
 
-                <label for="event-description">متن رویداد:</label>
-                <textarea id="event-description" placeholder="توضیحات رویداد را وارد کنید"></textarea>
+                    <label for="event-description">متن رویداد:</label>
+                    <textarea id="event-description" placeholder="توضیحات رویداد را وارد کنید"></textarea>
 
-                <button id="add-event-btn">اضافه کردن رویداد</button>
+                    <button id="add-event-btn">اضافه کردن رویداد</button>
+                </div>
+                <div class="event-list">
+                    <h3>رویدادهای شما:</h3>
+                    <ul id="events"></ul>
+                </div>
             </div>
 
+
         </div>
-        <div class="event-list">
-            <h3>رویدادهای شما:</h3>
-            <ul id="events"></ul>
-        </div>
+
 </body>
 
 </html>

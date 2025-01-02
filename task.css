@@ -15,6 +15,12 @@ body {
     align-items: flex-start;
 }
 
+.two-part {
+    display: flex;
+    margin: 50px;
+
+}
+
 .date-time {
     width: fit-content;
     margin: 30px;
@@ -22,14 +28,15 @@ body {
     display: flex;
     flex-direction: column;
     /* text-align: center; */
-    
-}
-#current-time{
-text-align: center;
-}
-.event-creator {
-    margin: 40px;
 
+}
+
+#current-time {
+    text-align: center;
+}
+
+.event-creator {
+    display: block;
     background-color: #f9f9f9;
     padding: 20px;
     border: 1px solid #ccc;
@@ -46,6 +53,7 @@ text-align: center;
 
 .event-creator input,
 .event-creator textarea {
+    display: block;
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -65,20 +73,42 @@ text-align: center;
 .event-creator button:hover {
     background-color: #218838;
 }
-.event-list{
+
+.event-list {
+    border-left: 1px solid #ccc;
     margin-left: 20px;
 }
+
 .event-list ul {
     list-style: none;
     padding: 0;
+
+}
+
+.event-list h3 {
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
 }
 
 .event-list li {
     background-color: #f1f1f1;
-    margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-bottom: 10px; /* فاصله بین آیتم‌ها */
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* استایل برای navbar بالایی */
