@@ -3,23 +3,22 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
 }
 
 .principale_cadre {
     display: block;
     margin: 20px;
+    height: auto;
+    width: 100%;
 }
 
 .text-image_cadre {
     display: block;
     text-align: center;
-    margin: 20px;
-}
-
-.premiére_text_image_cadre {
-    display: flex;
-    text-align: end;
-
+    margin: 20px auto;
+    width: 90%;
 }
 
 .premiére_text_image_cadre,
@@ -33,7 +32,31 @@ html {
     /* برای اطمینان از ترازبندی متن */
 }
 
+.principale_img {
+    width: 100%; /* عرض تصویر تمام صفحه */
+    height: 80vh; /* ارتفاع تصویر نسبت به صفحه */
+    object-fit: cover; /* تناسب تصویر حفظ شود */
+    border-radius: 10px;
+    position: relative; /* برای امکان قرار دادن دکمه در جلوی تصویر */
+
+
+}
+.button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1; /* مطمئن می‌شود که دکمه بالای تصویر قرار می‌گیرد */
+}
+
 .deuxiéme_text_image_cadre {
+    
     display: flex;
     align-items: center;
     /* ترازبندی عمودی */
@@ -48,6 +71,7 @@ html {
     height: 200px;
     margin-right: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
 }
 
@@ -61,10 +85,13 @@ html {
 
 .deuxiéme_text_image_cadre h1 {
     display: flex;
-    align-items: center; /* ترازبندی عمودی */
-    justify-content: space-between; /* تصویر و متن جدا از هم */
-    text-align: left; /* متن به سمت چپ */
-    flex-direction: row-reverse; 
+    align-items: center;
+    /* ترازبندی عمودی */
+    justify-content: space-between;
+    /* تصویر و متن جدا از هم */
+    text-align: left;
+    /* متن به سمت چپ */
+    flex-direction: row-reverse;
 
 }
 
@@ -75,4 +102,3 @@ html {
     text-align: right;
     /* ترازبندی متن به سمت راست */
 }
-
