@@ -1,0 +1,11 @@
+
+<div class="deuxiéme_text_image_cadre">
+            <!-- div pour text et le deuxiéme image flex-->
+            <img src="assets/images/ad.jpég" alt="description" class="img_premiér"/>
+            <h1>nos functions</h1>
+        </div>
+        <div class="troixiéme_text_image_cadre">
+            <img src="assets/images/ad.jépg" alt="description" class="img_premiér"/>
+            <h1>nos functions</h1>
+            <!-- div pour text et le troixiéme image flex-->
+        </div>

@@ -1,0 +1,78 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.principale_cadre {
+    display: block;
+    margin: 20px;
+}
+
+.text-image_cadre {
+    display: block;
+    text-align: center;
+    margin: 20px;
+}
+
+.premiére_text_image_cadre {
+    display: flex;
+    text-align: end;
+
+}
+
+.premiére_text_image_cadre,
+.troixiéme_text_image_cadre {
+    display: flex;
+    align-items: center;
+    /* ترازبندی عمودی */
+    justify-content: space-between;
+    /* تصویر و متن جدا از هم */
+    text-align: start;
+    /* برای اطمینان از ترازبندی متن */
+}
+
+.deuxiéme_text_image_cadre {
+    display: flex;
+    align-items: center;
+    /* ترازبندی عمودی */
+    justify-content: space-between;
+    /* تصویر و متن جدا از هم */
+    text-align: start;
+    /* برای اطمینان از ترازبندی متن */
+}
+
+.premiére_text_image_cadre .img_premiér,
+.troixiéme_text_image_cadre .img_troixiéme {
+    height: 200px;
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.deuxiéme_text_image_cadre .img_deuxiéme {
+    height: 200px;
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+
+}
+
+.deuxiéme_text_image_cadre h1 {
+    display: flex;
+    align-items: center; /* ترازبندی عمودی */
+    justify-content: space-between; /* تصویر و متن جدا از هم */
+    text-align: left; /* متن به سمت چپ */
+    flex-direction: row-reverse; 
+
+}
+
+.premiére_text_image_cadre,
+.troixiéme_text_image_cadre h1 {
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: right;
+    /* ترازبندی متن به سمت راست */
+}
+

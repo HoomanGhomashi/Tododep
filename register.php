@@ -1,6 +1,12 @@
 <?php
+// اطلاعات اتصال به پایگاه داده
+$servername = "sql307.infinityfree.com";  // آدرس سرور پایگاه داده
+$username = "if0_38028828";              // نام کاربری پایگاه داده
+$password = "yo2OMdawx2e";               // رمز عبور پایگاه داده
+$dbname = "if0_38028828_XXX";            // نام پایگاه داده
+
 // اتصال به پایگاه داده
-$conn = new mysqli("localhost", "root", "", "users");
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // بررسی خطا در اتصال
 if ($conn->connect_error) {
@@ -8,28 +14,45 @@ if ($conn->connect_error) {
 }
 
 // دریافت اطلاعات از فرم
-$username = $_POST['username'];
-$password = $_POST['password'];
-$verif_password = $_POST['verif_password'];
-$email = $_POST['Email'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
+    $verif_password = $_POST['verif_password'];
+    $email = $_POST['email'];
 
-// بررسی تطابق رمز عبور
-if ($password !== $verif_password) {
-    die("Passwords do not match!");
-}
+    // بررسی اینکه نام کاربری یا ایمیل قبلاً ثبت شده است
+    $check_user_sql = "SELECT * FROM information WHERE username = ? OR email = ?";
+    $stmt = $conn->prepare($check_user_sql);
+    $stmt->bind_param("ss", $user, $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-// رمزنگاری رمز عبور
-$password_hashed = password_hash($password, PASSWORD_DEFAULT);
+    if ($result->num_rows > 0) {
+        echo "نام کاربری یا ایمیل قبلاً ثبت شده است!";
+        exit;
+    }
 
-// ذخیره اطلاعات در جدول
-$sql = "INSERT INTO information (username, password, email) VALUES ('$username', '$password_hashed', '$email')";
+    // بررسی تطابق رمز عبور
+    if ($pass !== $verif_password) {
+        echo "رمز عبور و تایید رمز عبور مطابقت ندارند!";
+        exit;
+    }
 
-if ($conn->query($sql) === TRUE) {
-    echo "Registration successful!";
-   // echo "<a href='login.html'>Go to Login</a>";
-    header("Location: login.html");
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    // رمزنگاری رمز عبور
+    $password_hashed = password_hash($pass, PASSWORD_DEFAULT);
+
+    // ذخیره اطلاعات در جدول
+    $sql = "INSERT INTO information (username, password, email) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $user, $password_hashed, $email);
+
+    if ($stmt->execute()) {
+        echo "ثبت‌نام با موفقیت انجام شد!";
+        header("Location: login.html");  // هدایت به صفحه ورود پس از موفقیت
+        exit;
+    } else {
+        echo "خطا در ثبت‌نام: " . $stmt->error;
+    }
 }
 
 $conn->close();

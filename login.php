@@ -1,6 +1,12 @@
 <?php
+// اطلاعات اتصال به پایگاه داده
+$servername = "sql307.infinityfree.com"; // آدرس سرور پایگاه داده
+$username = "if0_38028828";            // نام کاربری پایگاه داده
+$password = "yo2OMdawx2e";             // رمز عبور پایگاه داده
+$dbname = "if0_38028828_XXX";          // نام پایگاه داده
+
 // اتصال به پایگاه داده
-$conn = new mysqli("localhost", "root", "", "users");
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // بررسی خطا در اتصال
 if ($conn->connect_error) {
@@ -12,20 +18,20 @@ $error_message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // دریافت اطلاعات از فرم
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
 
-    // جستجو برای نام کاربری در پایگاه داده
-    $sql = "SELECT * FROM information WHERE username = '$username'";
-    $result = $conn->query($sql);
+    // محافظت از SQL Injection با استفاده از prepared statements
+    $stmt = $conn->prepare("SELECT * FROM information WHERE username = ?");
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // اگر کاربر پیدا شد، اطلاعات کاربر را دریافت کن
+        // اگر کاربر پیدا شد
         $row = $result->fetch_assoc();
-        $stored_password = $row['password'];
-
         // مقایسه رمز عبور وارد شده با رمز عبور ذخیره‌شده
-        if ($password == $stored_password) {
+        if (password_verify($pass, $row['password'])) {
             // رمز عبور درست است
             header("Location: index.html");
             exit;
