@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
 body,
 html {
     margin: 0;
@@ -33,30 +35,155 @@ html {
 }
 
 .principale_img {
-    width: 100%; /* عرض تصویر تمام صفحه */
-    height: 80vh; /* ارتفاع تصویر نسبت به صفحه */
-    object-fit: cover; /* تناسب تصویر حفظ شود */
+    width: 100%;
+    /* عرض تصویر تمام صفحه */
+    height: 80vh;
+    /* ارتفاع تصویر نسبت به صفحه */
+    object-fit: cover;
+    /* تناسب تصویر حفظ شود */
     border-radius: 10px;
-    position: relative; /* برای امکان قرار دادن دکمه در جلوی تصویر */
+    position: relative;
+    /* برای امکان قرار دادن دکمه در جلوی تصویر */
 
 
 }
+
+.anim div,
+.anim_2 div {
+    width: 200px;
+    /* عرض محدود باکس */
+    height: auto;
+    /* ارتفاع خودکار برای محتوای باکس */
+    position: absolute;
+    top: 30%;
+    /* فاصله از بالا */
+    left: 10%;
+    /* فاصله از چپ */
+    display: inline-block;
+    overflow: hidden;
+    /* جلوگیری از نمایش اضافه متن */
+    white-space: normal;
+    /* اجازه شکستن متن به خطوط بعدی */
+    padding: 20px;
+    /* فضای داخلی باکس */
+
+    text-align: left;
+    /* تراز متن به چپ */
+    color: #000000;
+    /* رنگ متن */
+}
+
+.anim div:first-of-type {
+    width: auto;
+    font-size: 70px;
+    animation: showup 7s infinite;
+    color: #000000;
+}
+
+.anim_2 div:last-of-type {
+    color: #000000;
+    margin-top: 60px;
+    width: auto;
+    margin-left: 30px;
+    /* اجازه به متن برای تنظیم عرض */
+    animation: reveal 7s infinite;
+    font-size: 40px;
+}
+
+.anim_2 div:last-of-type span {
+    display: block;
+    /* هر span در یک خط جدید قرار می‌گیرد */
+    margin-top: 10px;
+    /* فاصله بین خطوط */
+    animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slidein {
+    0% {
+        margin-left: -800px;
+    }
+
+    20% {
+        margin-left: -800px;
+    }
+
+    35% {
+        margin-left: 0px;
+    }
+
+    100% {
+        margin-left: 0px;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        width: 0px;
+    }
+
+    20% {
+        opacity: 1;
+        width: 0px;
+    }
+
+    30% {
+        width: 355px;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        width: 355px;
+    }
+}
+
 .button {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    top: 60%;
+    /* پایین‌تر */
+    left: 70%;
+    /* به سمت راست‌تر */
+    background-color: rgb(0, 0, 0);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 35px 60px;
+    /* افزایش اندازه دکمه */
     cursor: pointer;
-    font-size: 16px;
-    z-index: 1; /* مطمئن می‌شود که دکمه بالای تصویر قرار می‌گیرد */
+    font-size: 20px;
+    /* افزایش اندازه متن دکمه */
+    z-index: 1;
+    border-radius: 20px;
 }
 
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
 .deuxiéme_text_image_cadre {
-    
+
     display: flex;
     align-items: center;
     /* ترازبندی عمودی */
@@ -68,7 +195,7 @@ html {
 
 .premiére_text_image_cadre .img_premiér,
 .troixiéme_text_image_cadre .img_troixiéme {
-    height: 200px;
+    height: 20%;
     margin-right: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -76,7 +203,7 @@ html {
 }
 
 .deuxiéme_text_image_cadre .img_deuxiéme {
-    height: 200px;
+    height: 20%;
     margin-right: 20px;
     margin-top: 20px;
     border-radius: 10px;

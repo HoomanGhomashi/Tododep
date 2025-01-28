@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    /* حذف فاصله پیش‌فرض از بالا */
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    /* مطمئن شو که تمام صفحه گرفته شده */
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.principal_cadre {
+    display: block;
+    position: relative;
+    /* Permet un positionnement basé sur le parent */
+    padding-top: 20px;
+    /* Ajoute de l'espace en haut */
+    text-align: center;
+}
+
+
+
+.name_jour_cadre {
+    display: flex;
+    justify-content: space-between;
+    /* Alignement des éléments à gauche et à droite */
+    align-items: center;
+    /* Centré verticalement */
+    height: 60px;
+    /* Ajustez la hauteur selon vos besoins */
+    margin-top: 70px;
+    /* Ajustez pour contrôler la position verticale */
+    padding: 0 20px;
+    /* Espace interne à gauche et à droite */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.name_jour_cadre .name {
+    font-size: 1.5em;
+    /* Taille de la police pour le nom */
+    font-weight: bold;
+    color: #333;
+}
+
+.name_jour_cadre #date {
+    font-size: 1.5em;
+    /* Taille de la police pour la date */
+    font-weight: bold;
+    color: #FF5722;
+}
+
+.secteur_cadre {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-top: 150px;
+    text-align: center;
+    justify-content: center;
+    gap: 300px;
+
+}
+
+.images-container {
+    position: relative;
+    overflow: hidden; /* مخفی کردن قسمت‌های اضافی تصویر که از حاشیه بیرون می‌آیند */
+}
+
+.images {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    /* انیمیشن برای تغییر اندازه */
+}
+
+.images-container:hover .images {
+    transform: scale(1.1);
+    /* بزرگ‌تر کردن تصویر در حالت هاور */
+}
+
+.hover-text {
+    position: absolute;
+    top: 50%; /* قرار دادن متن در وسط */
+    left: 50%;
+    transform: translate(-50%, -50%); /* درست کردن موقعیت متن */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1; /* قرار دادن متن در بالای تصویر */
+}
+
+.images-container:hover .hover-text {
+    opacity: 1;
+    /* زمانی که موس روی تصویر میره، متن نمایان میشه */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* پس‌زمینه تیره‌تر هنگام هاور */
+    transform: translate(-50%, -50%) translateY(-10px); /* حرکت متن به بالا */
+}
